@@ -1,0 +1,65 @@
+{
+  "name": "express-template",
+  "version": "0.0.1",
+  "description": "Express Template with routing controllers and more...",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sourcevortex/express-template"
+  },
+  "keywords": [
+    "expressjs",
+    "decorators",
+    "typescript"
+  ],
+  "author": "Carlos H.",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc:compile": "tsc",
+    "tsc:watch": "tsc -w",
+    "start": "node -r dotenv/config dist/Server.js",
+    "start:dev": "cross-env NODE_ENV=development concurrently --names 'tsc:watch,nodemon' --prefix name 'npm run tsc:watch' 'npm run start:nodemon'",
+    "start:prod": "cross-env NODE_ENV=production concurrently --names 'tsc:watch,node' --prefix name 'npm run tsc:watch' 'npm run start:node'",
+    "start:nodemon": "nodemon -r dotenv/config dist/Server.js",
+    "start:node": "node -r dotenv/config dist/Server.js"
+  },
+  "_moduleAliases": {
+    "@builder": "dist/app/builders",
+    "@factory": "dist/app/factories",
+    "@helper": "dist/app/helpers",
+    "@controller": "dist/app/http/controllers",
+    "@middleware": "dist/app/http/middlewares",
+    "@request": "dist/app/http/requests",
+    "@model": "dist/app/models",
+    "@config": "dist/config",
+    "@util": "dist/utils"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "class-transformer": "^0.3.1",
+    "class-validator": "^0.12.2",
+    "cross-env": "^7.0.2",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "module-alias": "^2.2.2",
+    "morgan": "^1.10.0",
+    "mquery": "^3.2.3",
+    "multer": "^1.4.2",
+    "reflect-metadata": "^0.1.13",
+    "routing-controllers": "^0.8.1",
+    "validator": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/express": "^4.17.6",
+    "@types/jsonwebtoken": "^8.3.9",
+    "@types/morgan": "^1.9.0",
+    "@types/validator": "^13.0.0",
+    "concurrently": "^5.2.0",
+    "nodemon": "^2.0.3",
+    "prettier": "^2.0.5",
+    "typescript": "^3.8.3"
+  }
+}

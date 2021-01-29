@@ -1,0 +1,12 @@
+# Build
+dist
+
+# Envs
+.env
+
+# Editors and IDEs
+.vscode
+.idea
+
+# Deps
+node_modules
